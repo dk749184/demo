@@ -1,0 +1,850 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Course List | SMN Group</title>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+
+    /* :root {
+      --primary: #f41828;
+      --dark: #1f2937;
+      --gray: #6b7280;
+      --bg: #f9fafb;
+      --card-bg: #ffffff;
+      --radius: 14px;
+    } */
+    /* :root {
+    --primary: #E11D2E;       
+    --secondary: #0F172A;     
+    --dark: #0F172A;
+    --gray: #64748B;
+    --bg: #F8FAFC;
+    --card-bg: #FFFFFF;
+    --border: #E2E8F0;
+    } */
+
+    /* :root {
+    --primary: #1D4ED8;
+    --secondary: #FACC15;
+    --dark: #1E293B;
+    --gray: #64748B;
+    --bg: #F8FAFC;
+    --card-bg: #FFFFFF;
+    } */
+
+    :root {
+    --primary: #1D4ED8;     
+    --accent: #FACC15;      
+    --dark: #0F172A;        
+    --gray: #64748B;        
+    --bg: #F8FAFC;          
+    --card-bg: #FFFFFF;
+    --border: #E2E8F0;
+    --radius: 14px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: "Poppins", sans-serif;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--dark);
+      line-height: 1.6;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+    }
+
+    /* ---------- HEADER ---------- */
+    header {
+      background: #fff;
+      padding: 20px 40px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.06);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    nav {
+      max-width: 1200px;
+      margin: auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    nav a {
+      text-decoration: none;
+      margin-left: 20px;
+      font-weight: 500;
+      color: var(--dark);
+    }
+
+    nav a.active,
+    nav a:hover {
+      color: var(--primary);
+    }
+
+    /* ---------- SECTION ---------- */
+    section {
+      padding: 70px 20px;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .section-label {
+      text-align: center;
+      color: var(--primary);
+      letter-spacing: 3px;
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 42px;
+      font-weight: 700;
+      margin-bottom: 60px;
+    }
+
+    /* ---------- GRID ---------- */
+    .course-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+    }
+
+    .course-card {
+      background: var(--card-bg);
+      border-radius: var(--radius);
+      padding: 30px;
+      position: relative;
+      border: 1px solid var(--border);
+      box-shadow: 0 10px 28px rgba(15, 23, 42, 0.06);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .course-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 22px 45px rgba(29, 78, 216, 0.18);
+    }
+
+    .course-number {
+      position: absolute;
+      top: -20px;
+      right: 20px;
+      background: var(--primary);
+      color: #ffffff;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 18px;
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+    }
+
+    .course-card h3 {
+      font-size: 20px;
+      margin-bottom: 12px;
+    }
+
+    .course-card ul {
+      padding-left: 18px;
+      color: var(--gray);
+    }
+
+    .course-card ul li {
+      margin-bottom: 6px;
+    }
+
+    /* ---------- FOOTER ---------- */
+    footer {
+      background: #021927;
+      color: #fff;
+      padding: 50px 20px;
+    }
+
+    .footer-container {
+      max-width: 1200px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+    }
+
+    footer p {
+      font-size: 14px;
+      opacity: 0.9;
+    }
+
+    .copyright {
+      text-align: center;
+      margin-top: 30px;
+      font-size: 13px;
+      opacity: 0.7;
+    }
+    .section-title::after {
+    content: "";
+    display: block;
+    width: 90px;
+    height: 4px;
+    background: linear-gradient(90deg, var(--primary), var(--accent));
+    margin: 18px auto 0;
+    border-radius: 3px;
+    }
+
+
+    /* ---------- RESPONSIVE ---------- */
+    @media (max-width: 768px) {
+      .section-title {
+        font-size: 28px;
+      }
+    }
+
+    .site-header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: #ffffff;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  border-bottom: 1px solid var(--border);
+}
+
+.header-container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 16px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Logo */
+.logo a {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--primary);
+  text-decoration: none;
+}
+
+/* Nav */
+.nav-menu {
+  display: flex;
+  align-items: center;
+  gap: 45px;
+}
+
+.nav-menu a {
+  text-decoration: none;
+  font-weight: 500;
+  color: #333;
+  position: relative;
+}
+
+.nav-menu a:hover {
+  color: var(--primary);
+}
+
+/* Highlight link */
+.nav-highlight {
+  padding: 8px 14px;
+  background: rgba(29, 78, 216, 0.08);
+  border-radius: 6px;
+  color: var(--primary) !important;
+  font-weight: 600;
+}
+
+/* Dropdown */
+.nav-dropdown {
+  position: relative;
+}
+
+.dropdown-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 16px;
+  color: #333;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 140%;
+  right: 0;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+  min-width: 200px;
+  display: none;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.dropdown-menu a {
+  padding: 12px 16px;
+  color: #333;
+  text-decoration: none;
+}
+
+.dropdown-menu a:hover {
+  background: #fff2f3;
+  color: #3c6aeb;
+}
+.dropdown-menu {
+  display: none;
+}
+
+.nav-dropdown.open .dropdown-menu {
+  display: flex;
+}
+/* Actions */
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.login-btn {
+  background: linear-gradient(135deg, #1D4ED8, #1E40AF);
+  color: #fff;
+  padding: 10px 18px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  box-shadow: 0 6px 16px rgba(29, 78, 216, 0.3);
+}
+
+.login-btn:hover {
+  opacity: 0.95;
+}
+
+/* Mobile */
+.menu-toggle {
+  display: none;
+  font-size: 22px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .nav-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: #fff;
+    flex-direction: column;
+    padding: 20px;
+    gap: 16px;
+    display: none;
+  }
+
+  .nav-menu.active {
+    display: flex;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+}
+
+
+/* ===== FOOTER ===== */
+.site-footer {
+  background: #0B1220;
+  color: #ffffff;
+  padding: 60px 20px 20px;
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 40px;
+}
+
+.footer-col h3 {
+  color: var(--accent);
+  margin-bottom: 16px;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.footer-col p {
+  font-size: 14px;
+  line-height: 1.7;
+  opacity: 0.9;
+}
+
+.footer-col a {
+  color: #ffffff;
+  text-decoration: none;
+  opacity: 0.9;
+}
+
+.footer-col a:hover {
+  color: var(--accent);
+}
+
+/* LISTS */
+.footer-col ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-col ul li {
+  margin-bottom: 10px;
+  font-size: 14px;
+}
+
+/* SOCIAL */
+.footer-social {
+  margin-top: 40px;
+  text-align: center;
+}
+
+.footer-social a {
+  margin: 0 12px;
+  color: #ffffff;
+  font-size: 14px;
+  text-decoration: none;
+  opacity: 0.8;
+}
+
+.footer-social a:hover {
+  color: var(--accent);
+  opacity: 1;
+}
+
+/* COPYRIGHT */
+.footer-bottom {
+  margin-top: 30px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255,255,255,0.1);
+  text-align: center;
+  font-size: 13px;
+  opacity: 0.7;
+}
+
+/* ===== MOBILE ===== */
+@media (max-width: 768px) {
+  .footer-social a {
+    display: inline-block;
+    margin: 8px;
+  }
+}
+
+
+  </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="site-header">
+  <div class="header-container">
+
+    <!-- Logo -->
+    <div class="logo">
+      <a href="/">SMN Group</a>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="nav-menu" id="navMenu">
+      <a href="/">Home</a>
+      <a href="/about-us">About Us</a>
+      <a href="/courses">Courses</a>
+      <a href="/freetest">Free Tests</a>
+      <div class="nav-dropdown">
+        <button class="dropdown-btn">
+          More
+          <span>▾</span>
+        </button>
+        <div class="dropdown-menu">
+          <a href="/our-team">Our Team</a>
+          <a href="/student-testimonials">Student Testimonials</a>
+          <a href="/contact-us">Contact Us</a>
+          <a href="/demo.html">Course List</a>
+
+        </div>
+      </div>
+    </nav>
+
+    <!-- CTA -->
+    <div class="header-actions">
+      <a
+        href="https://web.classplusapp.com/login?orgCode=fecuxc"
+        class="login-btn"
+      >
+        Login
+      </a>
+      <!-- Mobile Toggle -->
+      <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+    </div>
+
+  </div>
+</header>
+
+
+
+<!-- NATIONAL LEVEL -->
+<section>
+  <div class="container">
+    <div class="section-label">WHAT WE PROVIDE</div>
+    <h2 class="section-title">National-Level Competitive Exams (India)</h2>
+
+    <div class="course-grid">
+
+      <div class="course-card">
+        <div class="course-number">01</div>
+        <h3>Civil Services & Administration</h3>
+        <ul>
+          <li>UPSC Civil Services (IAS, IPS, IFS, IRS)</li>
+          <li>UPSC CDS</li>
+          <li>UPSC NDA</li>
+        </ul>
+      </div>
+
+      <div class="course-card">
+        <div class="course-number">02</div>
+        <h3>Engineering & Technical</h3>
+        <ul>
+          <li>SSC JE</li>
+          <li>Railways – RRB JE, SSE, ALP</li>
+        </ul>
+      </div>
+
+      <div class="course-card">
+        <div class="course-number">03</div>
+        <h3>Banking & Finance</h3>
+        <ul>
+          <li>IBPS PO, Clerk, SO</li>
+          <li>SBI PO, Clerk</li>
+          <li>RBI Grade B, Assistant</li>
+          <li>NABARD Grade A/B</li>
+        </ul>
+      </div>
+
+      <div class="course-card">
+        <div class="course-number">04</div>
+        <h3>Medical & Health</h3>
+        <ul>
+          <li>NEET UG</li>
+        </ul>
+      </div>
+
+      <div class="course-card">
+        <div class="course-number">05</div>
+        <h3>Law Entrance</h3>
+        <ul>
+          <li>CLAT UG</li>
+          <li>CLAT PG</li>
+        </ul>
+      </div>
+
+      <div class="course-card">
+        <div class="course-number">06</div>
+        <h3>University Admissions</h3>
+        <ul>
+          <li>CUET UG</li>
+          <li>CUET PG</li>
+          <li>NIOS Exams</li>
+        </ul>
+      </div>
+
+      <div class="course-card">
+        <div class="course-number">07</div>
+        <h3>Defence Exams</h3>
+        <ul>
+          <li>NDA</li>
+          <li>CDS</li>
+          <li>AFCAT</li>
+          <li>Indian Army, Navy, Air Force Recruitment</li>
+        </ul>
+      </div>
+
+      <div class="course-card">
+        <div class="course-number">08</div>
+        <h3>Teaching & Education</h3>
+        <ul>
+          <li>UGC-NET</li>
+          <li>CSIR-NET</li>
+          <li>CTET</li>
+          <li>STET</li>
+          <li>KVS (PRT / TGT / PGT)</li>
+          <li>NVS (PRT / TGT / PGT)</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- STATE LEVEL -->
+<section>
+  <div class="container">
+    
+    <h2 class="section-title">State-Level Competitive Exams</h2>
+
+    <div class="course-grid">
+
+      <div class="course-card">
+        <div class="course-number">01</div>
+        <h3>State Public Service Commission (PSC)</h3>
+        <ul>
+          <li>BPSC (Bihar)</li>
+          <li>UPPSC (Uttar Pradesh)</li>
+          <li>MPPSC (Madhya Pradesh)</li>
+          <li>JPSC (Jharkhand)</li>
+          <li>RPSC (Rajasthan)</li>
+          <li>HPSC (Haryana)</li>
+        </ul>
+      </div>
+
+      <div class="course-card">
+        <div class="course-number">02</div>
+        <h3>State Police & Uniform Services</h3>
+        <ul>
+          <li>SI & Constable (All States)</li>
+          <li>Fire Services</li>
+          <li>Jail Warder</li>
+          <li>Excise Constable</li>
+        </ul>
+      </div>
+
+      <div class="course-card">
+        <div class="course-number">03</div>
+        <h3>State Teaching Eligibility</h3>
+        <ul>
+          <li>BTET</li>
+          <li>UTET</li>
+          <li>UPTET</li>
+          <li>HTET</li>
+          <li>RTET</li>
+          <li>KTET</li>
+        </ul>
+      </div>
+
+      <div class="course-card">
+        <div class="course-number">04</div>
+        <h3>State Banking & Finance</h3>
+        <ul>
+          <li>Cooperative Bank Exams</li>
+          <li>State Finance Commission Exams</li>
+        </ul>
+      </div>
+
+      <div class="course-card">
+        <div class="course-number">05</div>
+        <h3>State Engineering / Technical</h3>
+        <ul>
+          <li>State Electricity Boards (BSEB, UPPCL, etc.)</li>
+        </ul>
+      </div>
+
+      <div class="course-card">
+        <div class="course-number">06</div>
+        <h3>Other State Recruitments</h3>
+        <ul>
+          <li>State Staff Selection Commission</li>
+          <li>Clerk / Assistant</li>
+          <li>Patwari / Lekhpal</li>
+          <li>Forest Guard</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- SCHOOL LEVEL -->
+<section>
+  <div class="container">
+    
+    <h2 class="section-title">All School Boards in India</h2>
+
+    <div class="course-grid">
+
+      <div class="course-card">
+        <div class="course-number">01</div>
+        <h3>National Boards</h3>
+        <ul>
+          <li>CBSE</li>
+          <li>ICSE / ISC</li>
+          <li>NIOS</li>
+        </ul>
+      </div>
+
+      <div class="course-card">
+        <div class="course-number">02</div>
+        <h3>State Boards</h3>
+        <ul>
+          <li>BSEB (Bihar)</li>
+          <li>UP Board</li>
+          <li>RBSE</li>
+          <li>MSBSHSE</li>
+          <li>MPBSE</li>
+          <li>JAC</li>
+          <li>WBBSE / WBCHSE</li>
+          <li>Punjab Board</li>
+          <li>HBSE</li>
+          <li>UBSE</li>
+          <li>HPBOSE</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+<div style="position:fixed;bottom:10px;right:10px;opacity:0.05;font-size:22px;pointer-events:none;">
+  SMN Group ©
+</div>
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="footer-container">
+
+    <!-- ABOUT -->
+    <div class="footer-col">
+      <h3>SMN Group</h3>
+      <p>
+        SMN Group is a premier coaching institute providing preparation
+        for national & state level competitive exams across India.
+      </p>
+    </div>
+
+    <!-- CONTACT -->
+    <div class="footer-col">
+      <h3>Contact Us</h3>
+      <p>📍 2006 – 2nd Floor, Grand Plaza,<br>
+        Fraser Road, Near Dakbunglow Chauraha,<br>
+        Patna, Bihar – 800001
+      </p>
+      <p>📞 <a href="tel:+919117030259">+91-9117030259</a></p>
+      <p>✉️ <a href="mailto:info@smngroup.co.in">info@smngroup.co.in</a></p>
+    </div>
+
+    <!-- QUICK LINKS -->
+    <div class="footer-col">
+      <h3>Quick Links</h3>
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/about-us">About Us</a></li>
+        <li><a href="/courses">Courses</a></li>
+        <li><a href="/freetest">Free Tests</a></li>
+        <li><a href="/contact-us">Contact Us</a></li>
+      </ul>
+    </div>
+
+    <!-- COURSES -->
+    <div class="footer-col">
+      <h3>Our Courses</h3>
+      <ul>
+        <li>UPSC / BPSC</li>
+        <li>SSC / Banking</li>
+        <li>Railway / Defence</li>
+        <li>Teaching (CTET / TET)</li>
+        <li>School Boards (CBSE / State)</li>
+      </ul>
+    </div>
+
+  </div>
+
+  <!-- SOCIAL -->
+  <div class="footer-social">
+    <a href="https://www.facebook.com/" target="_blank">Facebook</a>
+    <a href="https://www.instagram.com/" target="_blank">Instagram</a>
+    <a href="https://www.twitter.com/" target="_blank">Twitter</a>
+    <a href="#" target="_blank">YouTube</a>
+  </div>
+
+  <!-- COPYRIGHT -->
+  <div class="footer-bottom">
+    © 2025 SMN Group. All Rights Reserved.
+  </div>
+</footer>
+
+<script>
+  const dropdown = document.querySelector(".nav-dropdown");
+  let closeTimeout;
+
+  dropdown.addEventListener("mouseenter", () => {
+    clearTimeout(closeTimeout);
+    dropdown.classList.add("open");
+  });
+
+  dropdown.addEventListener("mouseleave", () => {
+    closeTimeout = setTimeout(() => {
+      dropdown.classList.remove("open");
+    }, 350); 
+  });
+
+
+ 
+  const currentPath = window.location.pathname;
+  const navLinks = document.querySelectorAll(".nav-menu a");
+
+  navLinks.forEach(link => {
+    if (link.getAttribute("href") === currentPath) {
+      link.classList.add("nav-highlight");
+    }
+  });
+
+
+   // Disable right click
+  document.addEventListener('contextmenu', e => e.preventDefault());
+
+  // Disable copy, cut, paste
+  document.addEventListener('copy', e => e.preventDefault());
+  document.addEventListener('cut', e => e.preventDefault());
+  document.addEventListener('paste', e => e.preventDefault());
+
+  // Disable text selection
+  document.addEventListener('selectstart', e => e.preventDefault());
+
+  // Disable common keyboard shortcuts
+  document.addEventListener('keydown', function(e) {
+    if (
+      (e.ctrlKey && ['c','x','u','s','a'].includes(e.key.toLowerCase())) ||
+      (e.ctrlKey && e.shiftKey && ['i','j','c'].includes(e.key.toLowerCase())) ||
+      e.key === 'F12'
+    ) {
+      e.preventDefault();
+    }
+  });
+
+  setInterval(() => {
+    if (
+      window.outerHeight - window.innerHeight > 200 ||
+      window.outerWidth - window.innerWidth > 200
+    ) {
+      document.body.innerHTML =
+        "<h2 style='text-align:center;margin-top:20%;font-family:Poppins'>Inspection Disabled</h2>";
+    }
+  }, 1000);
+
+</script>
+
+</body>
+</html>
