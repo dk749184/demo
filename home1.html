@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>SMN Group | Turning Dreams Into Achievements</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --orange:#145fc2;
+  --yellow:#4498cb;
+  --dark:#125a7c;
+  --light:#fff7ed;
+}
+
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
+html{scroll-behavior:smooth;}
+body{color:#333;line-height:1.7;background:#fff;}
+
+/* HEADER */
+header{
+  position:fixed;
+  top:0;width:100%;
+  background:#fff;
+  box-shadow:0 8px 25px rgba(0,0,0,.08);
+  z-index:1000;
+}
+.nav{
+  max-width:1200px;
+  margin:auto;
+  padding:15px 20px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+.logo{
+  font-size:26px;
+  font-weight:700;
+  background:linear-gradient(45deg,var(--orange),#fdba74);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+.menu a{
+  margin-left:22px;
+  text-decoration:none;
+  font-weight:500;
+  color:#444;
+}
+.menu a.btn{
+  background:linear-gradient(45deg,var(--orange),#fdba74);
+  color:#fff;
+  padding:10px 24px;
+  border-radius:30px;
+}
+
+/* HERO */
+.hero{
+  margin-top:90px;
+  padding:110px 20px;
+  background:linear-gradient(135deg,var(--light),#fff);
+}
+.hero-box{
+  max-width:1200px;
+  margin:auto;
+  display:grid;
+  grid-template-columns:1.2fr .8fr;
+  gap:50px;
+  align-items:center;
+}
+.hero h1{
+  font-size:48px;
+  font-weight:700;
+  color:var(--dark);
+}
+.hero p{margin:18px 0;text-align:justify;}
+.hero img{
+  width:100%;
+  border-radius:20px;
+  box-shadow:0 25px 60px rgba(249,115,22,.35);
+}
+.btn{
+  display:inline-block;
+  margin-top:20px;
+  background:linear-gradient(45deg,var(--orange),#fdba74);
+  color:#fff;
+  padding:14px 30px;
+  border-radius:30px;
+  font-weight:600;
+  text-decoration:none;
+}
+
+/* SECTIONS */
+section{padding:100px 20px;}
+.title{text-align:center;margin-bottom:60px;}
+.title h2{font-size:40px;color:var(--dark);}
+.title p{color:#666;}
+
+/* COURSES */
+.courses{
+  max-width:1200px;
+  margin:auto;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:30px;
+}
+.course{
+  background:#fff;
+  padding:30px;
+  border-radius:18px;
+  box-shadow:0 15px 40px rgba(0,0,0,.08);
+}
+.course h3{color:var(--orange);margin-bottom:10px;}
+
+/* TEAM */
+.team{
+  max-width:1200px;
+  margin:auto;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:30px;
+}
+.member{
+  background:#fff;
+  padding:28px;
+  text-align:center;
+  border-radius:20px;
+  box-shadow:0 20px 45px rgba(0,0,0,.08);
+}
+.member img{
+  width:100%;
+  height:260px;
+  object-fit:cover;
+  border-radius:16px;
+}
+.badge{
+  margin:15px 0;
+  display:inline-block;
+  padding:6px 14px;
+  background:var(--light);
+  color:var(--dark);
+  border-radius:20px;
+  font-size:14px;
+}
+
+/* NEWSLETTER */
+.newsletter{
+  background:linear-gradient(135deg,var(--orange),#fdba74);
+  color:#fff;
+  text-align:center;
+}
+.newsletter input{
+  padding:14px;
+  width:260px;
+  border:none;
+  border-radius:30px;
+  margin:15px 10px;
+}
+
+/* CONTACT */
+.contact{
+  max-width:1200px;
+  margin:auto;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:40px;
+}
+input,textarea{
+  width:100%;
+  padding:14px;
+  border-radius:10px;
+  border:1px solid #ddd;
+  margin-bottom:14px;
+}
+
+/* FOOTER */
+footer{
+  background:linear-gradient(135deg,var(--dark),#000);
+  color:#fff;
+  text-align:center;
+  padding:45px 20px;
+}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+  .hero-box,.contact{grid-template-columns:1fr;}
+  .menu{display:none;}
+}
+
+/* NOTES SECTION */
+#notes{background:#fff;}
+.notes-tabs{
+  text-align:center;
+  margin-bottom:40px;
+}
+.notes-tabs .tab{
+  padding:10px 22px;
+  margin:6px;
+  border:none;
+  border-radius:30px;
+  background:#f3f4f6;
+  cursor:pointer;
+  font-weight:500;
+}
+.notes-tabs .tab.active{
+  background:linear-gradient(45deg,var(--orange),#fdba74);
+  color:#fff;
+}
+
+.notes-box{
+  max-width:1200px;
+  margin:auto;
+}
+.notes-group{
+  display:none;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:30px;
+}
+.notes-group.active{display:grid;}
+
+.note-card{
+  background:#fff;
+  padding:28px;
+  border-radius:20px;
+  box-shadow:0 15px 40px rgba(0,0,0,.08);
+  transition:.4s;
+}
+.note-card:hover{transform:translateY(-10px);}
+.note-card h3{color:var(--dark);}
+.note-card p{margin:10px 0;color:#555;}
+
+.tag{
+  display:inline-block;
+  padding:6px 14px;
+  background:var(--light);
+  border-radius:20px;
+  font-size:13px;
+  margin-bottom:12px;
+}
+
+.actions{
+  display:flex;
+  gap:12px;
+}
+.btn.small{
+  padding:8px 18px;
+  font-size:14px;
+}
+.btn.outline{
+  background:#fff;
+  color:var(--orange);
+  border:2px solid var(--orange);
+}
+
+/* NEW BATCH SECTION */
+#batches{
+  background:linear-gradient(135deg,#fff7ed,#fff);
+}
+
+.batch-box{
+  max-width:1200px;
+  margin:auto;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:35px;
+}
+
+.batch-card{
+  background:#fff;
+  padding:35px;
+  border-radius:22px;
+  box-shadow:0 20px 50px rgba(0,0,0,.08);
+  position:relative;
+  transition:.4s;
+}
+.batch-card:hover{transform:translateY(-12px);}
+
+.batch-card h3{
+  color:var(--dark);
+  margin-bottom:15px;
+}
+
+.batch-card ul{
+  list-style:none;
+  margin-bottom:20px;
+}
+.batch-card li{
+  margin-bottom:8px;
+  font-size:15px;
+}
+
+.price{
+  font-size:28px;
+  font-weight:700;
+  color:var(--orange);
+  margin-bottom:18px;
+}
+
+.ribbon{
+  position:absolute;
+  top:20px;
+  right:-10px;
+  background:linear-gradient(45deg,var(--orange),#fdba74);
+  color:#fff;
+  padding:6px 18px;
+  font-size:13px;
+  border-radius:20px;
+}
+
+.highlight{
+  border:3px solid var(--orange);
+}
+
+/* MOBILE */
+@media(max-width:600px){
+  .price{font-size:24px;}
+}
+
+
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="nav">
+    <div class="logo">SMN GROUP</div>
+    <div class="menu">
+      <a href="#">Home</a>
+      <a href="#">About Us</a>
+      <a href="#">Courses</a>
+      <a href="#">Free Tests</a>
+      <a href="#" class="btn">Login</a>
+    </div>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-box">
+    <div>
+      <h1>Turning Dreams Into Achievements</h1>
+      <p>
+        <strong>SMN GROUP</strong> is committed to transforming aspirants into achievers through a structured online learning ecosystem. We provide complete preparation for UPSC, BPSC, UPPSC, MPPSC, JPSC and other State PSCs, along with CBSE, Bihar, UP and other Board exams.
+      </p>
+      <p>
+        Our courses also cover CLAT, CUET, NET, CTET, STET, Banking (IBPS, SBI, RBI),
+        Government recruitment exams and major Engineering & Medical entrances.
+      </p>
+      <p>
+        With premium study material, chapter-wise notes, focused practice sets,
+        structured test series and full mock tests, we ensure conceptual clarity,
+        disciplined preparation and success often in the first attempt.
+      </p>
+      <a href="#" class="btn">EXPLORE COURSES</a>
+    </div>
+    <img src="Gemini_Generated_Image_gb9ra2gb9ra2gb9r (1).png" alt="SMN Group">
+  </div>
+</section>
+<section id="notes">
+  <div class="title">
+    <h2>Study Notes</h2>
+    <p>Well-structured, exam-oriented notes prepared by expert faculty</p>
+  </div>
+
+  <!-- Tabs -->
+  <div class="notes-tabs">
+    <button class="tab active" onclick="showNotes('upsc')">UPSC</button>
+    <button class="tab" onclick="showNotes('state')">State PSC</button>
+    <button class="tab" onclick="showNotes('banking')">Banking</button>
+    <button class="tab" onclick="showNotes('teaching')">Teaching</button>
+    <button class="tab" onclick="showNotes('boards')">Boards</button>
+  </div>
+
+  <!-- Notes Container -->
+  <div class="notes-box">
+
+    <!-- UPSC -->
+    <div class="notes-group active" id="upsc">
+      <div class="note-card">
+        <h3>Polity</h3>
+        <p>Indian Constitution, Governance, Parliament & Judiciary</p>
+        <span class="tag">UPSC CSE</span>
+        <div class="actions">
+          <a href="#" class="btn small">View</a>
+          <a href="#" class="btn outline">Download</a>
+        </div>
+      </div>
+
+      <div class="note-card">
+        <h3>History</h3>
+        <p>Ancient, Medieval & Modern India with PYQs</p>
+        <span class="tag">UPSC CSE</span>
+        <div class="actions">
+          <a href="#" class="btn small">View</a>
+          <a href="#" class="btn outline">Download</a>
+        </div>
+      </div>
+
+      <div class="note-card">
+        <h3>Geography</h3>
+        <p>Physical, Indian & World Geography</p>
+        <span class="tag">UPSC CSE</span>
+        <div class="actions">
+          <a href="#" class="btn small">View</a>
+          <a href="#" class="btn outline">Download</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- STATE PSC -->
+    <div class="notes-group" id="state">
+      <div class="note-card">
+        <h3>State Polity</h3>
+        <p>BPSC / UPPSC / MPPSC focused content</p>
+        <span class="tag">State PSC</span>
+        <div class="actions">
+          <a href="#" class="btn small">View</a>
+          <a href="#" class="btn outline">Download</a>
+        </div>
+      </div>
+
+      <div class="note-card">
+        <h3>State History</h3>
+        <p>State-specific history and culture</p>
+        <span class="tag">State PSC</span>
+        <div class="actions">
+          <a href="#" class="btn small">View</a>
+          <a href="#" class="btn outline">Download</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- BANKING -->
+    <div class="notes-group" id="banking">
+      <div class="note-card">
+        <h3>Quantitative Aptitude</h3>
+        <p>Short tricks, formulas & practice sets</p>
+        <span class="tag">IBPS • SBI</span>
+        <div class="actions">
+          <a href="#" class="btn small">View</a>
+          <a href="#" class="btn outline">Download</a>
+        </div>
+      </div>
+
+      <div class="note-card">
+        <h3>Reasoning</h3>
+        <p>Logical & Analytical Reasoning</p>
+        <span class="tag">Banking</span>
+        <div class="actions">
+          <a href="#" class="btn small">View</a>
+          <a href="#" class="btn outline">Download</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- TEACHING -->
+    <div class="notes-group" id="teaching">
+      <div class="note-card">
+        <h3>Child Development & Pedagogy</h3>
+        <p>CTET / STET focused notes</p>
+        <span class="tag">Teaching Exams</span>
+        <div class="actions">
+          <a href="#" class="btn small">View</a>
+          <a href="#" class="btn outline">Download</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- BOARDS -->
+    <div class="notes-group" id="boards">
+      <div class="note-card">
+        <h3>Class 10 Science</h3>
+        <p>NCERT aligned chapter-wise notes</p>
+        <span class="tag">CBSE / State Boards</span>
+        <div class="actions">
+          <a href="#" class="btn small">View</a>
+          <a href="#" class="btn outline">Download</a>
+        </div>
+      </div>
+
+      <div class="note-card">
+        <h3>Class 12 History</h3>
+        <p>Board exam + CUET oriented notes</p>
+        <span class="tag">Boards</span>
+        <div class="actions">
+          <a href="#" class="btn small">View</a>
+          <a href="#" class="btn outline">Download</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+<section id="batches">
+  <div class="title">
+    <h2>New Batches Starting</h2>
+    <p>Enroll now and secure your seat in upcoming batches</p>
+  </div>
+
+  <div class="batch-box">
+
+    <div class="batch-card highlight">
+      <span class="ribbon">NEW</span>
+      <h3>UPSC CSE Foundation 2026</h3>
+      <ul>
+        <li><strong>Start Date:</strong> 15 July 2025</li>
+        <li><strong>Duration:</strong> 12 Months</li>
+        <li><strong>Mode:</strong> Online Live + Recorded</li>
+        <li><strong>Includes:</strong> Notes, Test Series, Doubt Support</li>
+      </ul>
+      <div class="price">₹49,999</div>
+      <a href="#" class="btn">Enroll Now</a>
+    </div>
+
+    <div class="batch-card">
+      <span class="ribbon">NEW</span>
+      <h3>BPSC / State PSC Foundation</h3>
+      <ul>
+        <li><strong>Start Date:</strong> 20 July 2025</li>
+        <li><strong>Duration:</strong> 8 Months</li>
+        <li><strong>Mode:</strong> Online</li>
+        <li><strong>Includes:</strong> Notes + Practice Sets</li>
+      </ul>
+      <div class="price">₹29,999</div>
+      <a href="#" class="btn">Enroll Now</a>
+    </div>
+
+    <div class="batch-card">
+      <span class="ribbon">NEW</span>
+      <h3>Banking (IBPS | SBI) 2025</h3>
+      <ul>
+        <li><strong>Start Date:</strong> 10 July 2025</li>
+        <li><strong>Duration:</strong> 6 Months</li>
+        <li><strong>Mode:</strong> Online</li>
+        <li><strong>Includes:</strong> Notes + Mock Tests</li>
+      </ul>
+      <div class="price">₹14,999</div>
+      <a href="#" class="btn">Enroll Now</a>
+    </div>
+
+  </div>
+</section>
+
+
+
+
+<section>
+  <div class="title">
+    <h2>OUR TEAM</h2>
+    <p>Brilliant Minds at Work</p>
+  </div>
+  <div class="team">
+    <div class="member">
+      <img src="https://cdn-diy-public.classplus.co/prod/NKVPHOTO1_1762627387410.png">
+      <h3>Dr. N. K. Verma</h3>
+      <div class="badge">Star Tutor • 10 Years</div>
+    </div>
+    <div class="member">
+      <img src="https://cdn-diy-public.classplus.co/prod/Screenshot20251109at12_1762627418659.png">
+      <h3>Niloo Kumari</h3>
+      <div class="badge">Star Tutor • 10 Years</div>
+    </div>
+    <div class="member">
+      <img src="https://cdn-diy-public.classplus.co/prod/Screenshot20251109at12_1762627426835.png">
+      <h3>Cmdr. Vinay Kumar</h3>
+      <div class="badge">Star Tutor • 10 Years</div>
+    </div>
+    <div class="member">
+      <img src="https://cdn-diy-public.classplus.co/prod/Principal1_1762627484377.jpeg">
+      <h3>Dr. Babita Kumari</h3>
+      <div class="badge">25+ Years Experience</div>
+    </div>
+  </div>
+</section>
+
+<section class="newsletter">
+  <h2>Smart Learning. Superior Results</h2>
+  <p>Subscribe to our weekly newsletter and get recent updates.</p>
+  <input type="email" placeholder="Enter your email ID">
+  <a class="btn">Subscribe Now</a>
+</section>
+
+<section>
+  <div class="title">
+    <h2>Contact Us</h2>
+    <p>Don’t get confused, take expert advice</p>
+  </div>
+  <div class="contact">
+    <div>
+      <p>
+        2006-2ND FLOOR, GRAND PLAZA<br>
+        FRASER ROAD, NEAR DAKBUNGLOW CHAURAHA<br>
+        PATNA, BIHAR – 800001
+      </p>
+      <p>📞 +91-9117030259</p>
+      <p>📧 info@smngroup.co.in</p>
+    </div>
+    <div>
+      <input placeholder="Name">
+      <input placeholder="Phone Number">
+      <input placeholder="Email ID">
+      <textarea placeholder="Your Message"></textarea>
+      <a class="btn">Contact Now</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>2006-2ND FLOOR, GRAND PLAZA, PATNA – 800001</p>
+  <p>+91-9117030259 | info@smngroup.co.in</p>
+  <p>© 2025 All Rights Reserved</p>
+  <p>Powered by Classplus</p>
+</footer>
+
+</body>
+</html>
