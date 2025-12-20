@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Free Tests | SMN Group</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --primary: #145fc2;
+      --secondary: #4aa8ff;
+      --accent: #ff5252;
+      --light: #eef4ff;
+      --dark: #1a1a1a;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: "Poppins", sans-serif; }
+    body {
+      background: linear-gradient(135deg, #e9f1ff, #f8fcff);
+      color: var(--dark);
+      overflow-x: hidden;
+    }
+
+    /* HEADER */
+    header {
+      background: #fff;
+      box-shadow: 0 4px 20px rgba(0,0,0,.08);
+      position: fixed; top: 0; width: 100%; z-index: 1000;
+      animation: slideDown 0.6s ease forwards;
+    }
+
+    .nav {
+      max-width: 1200px; margin: auto;
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 15px 20px;
+    }
+
+    .logo {
+      font-size: 28px; font-weight: 700;
+      background: linear-gradient(45deg, var(--primary), var(--secondary));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .menu a {
+      text-decoration: none; color: var(--dark);
+      margin-left: 25px; font-weight: 500;
+      position: relative; transition: .3s;
+    }
+    .menu a:hover { color: var(--primary); }
+    .menu a.active::after {
+      content: ""; position: absolute; bottom: -6px; left: 0;
+      width: 100%; height: 3px; background: var(--primary);
+      border-radius: 5px;
+    }
+    .menu a.btn {
+      background: linear-gradient(45deg, var(--primary), var(--secondary));
+      color: #fff; padding: 8px 18px; border-radius: 30px;
+      box-shadow: 0 4px 10px rgba(20,95,194,0.3);
+      transition: .3s;
+    }
+    .menu a.btn:hover { transform: translateY(-2px); box-shadow: 0 6px 15px rgba(20,95,194,0.5); }
+
+    /* MAIN CONTENT */
+    main {
+      max-width: 1200px;
+      margin: 120px auto 60px;
+      padding: 0 20px;
+      animation: fadeIn 1s ease;
+    }
+
+    h1 { font-size: 36px; color: var(--primary); margin-bottom: 8px; }
+    .test-header {
+      display: flex; justify-content: space-between; align-items: center;
+      margin-bottom: 35px; flex-wrap: wrap; gap: 10px;
+    }
+
+    input[type="text"] {
+      padding: 12px 18px; border-radius: 30px;
+      border: 1px solid #cddaf8; width: 300px;
+      outline: none; background: #fff;
+      box-shadow: 0 2px 6px rgba(0,0,0,.05);
+      transition: .3s;
+    }
+    input[type="text"]:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 12px rgba(20,95,194,0.25);
+    }
+
+    /* TEST GRID */
+    .test-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 30px;
+      animation: fadeUp 1.2s ease;
+    }
+
+    .test-wrapper {
+      animation: fadeUp 1s ease;
+      animation-delay: calc(var(--i) * 0.05s);
+      animation-fill-mode: both;
+    }
+
+    .test-card {
+      display: flex; justify-content: space-between; align-items: center;
+      background: #fff; padding: 22px 26px;
+      border-radius: 18px; box-shadow: 0 8px 25px rgba(0,0,0,.08);
+      transition: all .4s ease;
+      border-left: 5px solid var(--primary);
+    }
+
+    .test-card:hover {
+      transform: translateY(-10px) scale(1.02);
+      box-shadow: 0 15px 35px rgba(20,95,194,0.25);
+    }
+
+    .test-info { display: flex; align-items: center; gap: 15px; }
+    .test-info img {
+      width: 45px; height: 45px;
+      filter: drop-shadow(0 2px 4px rgba(20,95,194,0.2));
+      animation: float 3s ease-in-out infinite;
+    }
+    .test-info h3 { font-size: 16px; font-weight: 600; color: var(--dark); }
+
+    .btn-attempt {
+      background: linear-gradient(45deg, var(--primary), var(--secondary));
+      color: #fff; padding: 10px 20px;
+      border-radius: 25px; text-decoration: none;
+      font-weight: 500; transition: all 0.3s ease;
+      box-shadow: 0 4px 12px rgba(20,95,194,0.3);
+      position: relative; overflow: hidden;
+    }
+    .btn-attempt::before {
+      content: ""; position: absolute; top: 0; left: -100%;
+      width: 100%; height: 100%; background: rgba(255,255,255,0.4);
+      transition: 0.5s;
+    }
+    .btn-attempt:hover::before { left: 100%; }
+    .btn-attempt:hover { transform: translateY(-3px); box-shadow: 0 6px 16px rgba(20,95,194,0.45); }
+
+    /* ANIMATIONS */
+    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(40px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes slideDown { from { transform: translateY(-100%); } to { transform: translateY(0); } }
+    @keyframes float { 0%,100%{transform:translateY(0);}50%{transform:translateY(-6px);} }
+
+    @media (max-width: 600px) {
+      h1 { font-size: 26px; }
+      .test-card { flex-direction: column; align-items: flex-start; gap: 10px; }
+      .btn-attempt { align-self: flex-end; }
+    }
+    .logo-link {
+  display: flex;
+  align-items: center;
+}
+
+.logo-img {
+  height: 55px;
+  width: auto;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+}
+
+.logo-img:hover {
+  transform: scale(1.05);
+}
+
+  </style>
+</head>
+
+<body>
+ <header>
+  <div class="nav">
+    <a href="https://www.smngroup.co.in" class="logo-link">
+      <img src="https://cdn-diy-public.classplus.co/prod/SMNLOGO_1766077785354.jpg" alt="SMN Group Logo" class="logo-img">
+    </a>
+    <div class="menu">
+      <a href="index.html">Home</a>
+      <a href="#">About Us</a>
+      <a href="#">Courses</a>
+      <a href="#" class="active">Free Tests</a>
+      <a href="#" class="btn">Login</a>
+    </div>
+  </div>
+</header>
+
+
+  <main>
+    <div class="test-header">
+      <div>
+        <h1>Free Tests</h1>
+        <p>Total (29)</p>
+      </div>
+      <input type="text" placeholder="Search Test...">
+    </div>
+
+    <div class="test-grid" id="testGrid"></div>
+  </main>
+
+  <script>
+    const tests = [
+      "CBSE CLASS XII HISTORY FREE TEST","CBSE CLASS XII SCIENCE FREE TEST","CBSE CLASS XI ARTS FREE TEST","CBSE CLASS X SCIENCE FREE TEST",
+      "CBSE CLASS X MATHS PRACTICE TEST","CBSE CLASS IX SCIENCE TEST","BPSC GENERAL STUDIES MOCK TEST","UPSC PRELIMS PRACTICE TEST",
+      "SSC REASONING CHALLENGE TEST","SSC MATHS ADVANCE TEST","BANKING APTITUDE TEST","IBPS CLERK FREE MOCK TEST",
+      "RAILWAY GROUP D PRACTICE TEST","RRB NTPC FULL MOCK TEST","CTET PAPER I FREE TEST","CTET PAPER II FREE TEST",
+      "STET PRACTICE MOCK TEST","NET PAPER I GENERAL AWARENESS TEST","GK DAILY PRACTICE TEST","CURRENT AFFAIRS WEEKLY TEST",
+      "LOGICAL REASONING BASIC TEST","ANALYTICAL APTITUDE ADVANCED TEST","ENGLISH GRAMMAR PRACTICE TEST","ENGLISH VOCABULARY QUIZ",
+      "GENERAL SCIENCE TEST","INDIAN POLITY TEST","GEOGRAPHY PRACTICE QUIZ","HISTORY OF INDIA PRACTICE TEST","ECONOMICS FUNDAMENTALS TEST"
+    ];
+
+    const grid = document.getElementById("testGrid");
+    const icon = "https://cdn-icons-png.flaticon.com/512/2965/2965335.png";
+
+    grid.innerHTML = tests.map((name, i) => `
+      <div class="test-wrapper" style="--i:${i}">
+        <div class="test-card">
+          <div class="test-info">
+            <img src="${icon}" alt="Test Icon">
+            <h3>${name}</h3>
+          </div>
+          <a href="#" class="btn-attempt">Attempt</a>
+        </div>
+      </div>
+    `).join('');
+  </script>
+</body>
+</html>
