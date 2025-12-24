@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Our Courses | EduMentor</title>
+
+<!-- Google Font -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --primary:#2563eb;
+  --primary-light:#e8f0ff;
+  --text-dark:#111827;
+  --text-muted:#6b7280;
+  --border:#e5e7eb;
+  --bg:#f9fafb;
+  --card:#ffffff;
+  --badge:#fbbf24;
+  --radius:14px;
+}
+
+/* RESET */
+*{margin:0;padding:0;box-sizing:border-box}
+body{
+  font-family:'Inter',sans-serif;
+  background:var(--bg);
+  color:var(--text-dark);
+  line-height:1.6;
+}
+img{max-width:100%;display:block}
+a{text-decoration:none;color:inherit}
+button{font-family:inherit}
+
+/* ================= HEADER ================= */
+header{
+  background:#fff;
+  border-bottom:1px solid var(--border);
+}
+.navbar{
+  max-width:1200px;
+  margin:auto;
+  padding:16px 24px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+.logo{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  font-weight:700;
+  font-size:20px;
+  color:var(--primary);
+}
+
+.logo img{
+  height:40px;
+}
+.nav-links{
+  display:flex;
+  gap:28px;
+  font-size:14px;
+}
+.nav-links a{
+  color:var(--text-muted);
+  font-weight:500;
+}
+.nav-links a:hover{color:var(--primary)}
+.auth{
+  font-size:14px;
+  font-weight:600;
+  color:var(--primary);
+}
+
+/* ================= PAGE ================= */
+.container{
+  max-width:1200px;
+  margin:auto;
+  padding:32px 24px;
+  display:grid;
+  grid-template-columns:260px 1fr;
+  gap:32px;
+}
+
+/* ================= SIDEBAR ================= */
+.sidebar{
+  background:#fff;
+  border:1px solid var(--border);
+  border-radius:var(--radius);
+  padding:20px;
+  height:fit-content;
+}
+.search-box{
+  display:flex;
+  align-items:center;
+  border:1px solid var(--border);
+  border-radius:10px;
+  padding:10px 12px;
+  margin-bottom:20px;
+}
+.search-box input{
+  border:none;
+  outline:none;
+  width:100%;
+  font-size:14px;
+}
+.filter-group{
+  margin-bottom:20px;
+}
+.filter-title{
+  font-weight:600;
+  font-size:14px;
+  margin-bottom:10px;
+}
+.filter-group label{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  font-size:14px;
+  color:var(--text-muted);
+  margin-bottom:8px;
+  cursor:pointer;
+}
+
+/* ================= CONTENT ================= */
+.content h1{
+  font-size:28px;
+  margin-bottom:6px;
+}
+.subtitle{
+  color:var(--text-muted);
+  margin-bottom:24px;
+}
+
+/* ================= COURSES GRID ================= */
+.grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:24px;
+}
+.card{
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:var(--radius);
+  overflow:hidden;
+  display:flex;
+  flex-direction:column;
+  transition:.2s ease;
+}
+.card:hover{
+  transform:translateY(-4px);
+  box-shadow:0 10px 25px rgba(0,0,0,.06);
+}
+.card img{
+  height:170px;
+  object-fit:cover;
+}
+.card-body{
+  padding:16px;
+  display:flex;
+  flex-direction:column;
+  flex:1;
+}
+.badge{
+  background:var(--badge);
+  color:#92400e;
+  font-size:12px;
+  font-weight:600;
+  padding:4px 10px;
+  border-radius:999px;
+  width:fit-content;
+  margin-bottom:8px;
+}
+.card h3{
+  font-size:16px;
+  margin-bottom:6px;
+}
+.card p{
+  font-size:13px;
+  color:var(--text-muted);
+  margin-bottom:12px;
+}
+.meta{
+  display:flex;
+  justify-content:space-between;
+  font-size:13px;
+  margin-bottom:14px;
+}
+.price{
+  font-weight:700;
+  color:var(--primary);
+}
+.btn{
+  margin-top:auto;
+  text-align:center;
+  padding:10px;
+  border-radius:10px;
+  font-weight:600;
+  font-size:14px;
+  cursor:pointer;
+}
+.btn.primary{
+  background:var(--primary);
+  color:#fff;
+}
+.btn.secondary{
+  border:1px solid var(--border);
+  color:var(--primary);
+}
+
+/* ================= FOOTER ================= */
+footer{
+  border-top:1px solid var(--border);
+  background:#fff;
+  margin-top:40px;
+}
+.footer-inner{
+  max-width:1200px;
+  margin:auto;
+  padding:20px 24px;
+  display:flex;
+  justify-content:space-between;
+  font-size:13px;
+  color:var(--text-muted);
+}
+
+/* ================= RESPONSIVE ================= */
+@media(max-width:1024px){
+  .container{grid-template-columns:1fr}
+}
+@media(max-width:768px){
+  .grid{grid-template-columns:repeat(2,1fr)}
+  .nav-links{display:none}
+}
+@media(max-width:480px){
+  .grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+
+<body>
+
+<!-- ================= HEADER ================= -->
+<header>
+  <div class="navbar">
+    <div class="logo"><img src="https://diy-assets.classplus.co/_next/image?url=https://cdn-diy-public.classplus.co/prod/SMNLOGO_1766077785354.jpg&w=1920&q=75" alt="SMN Group"></div>
+    <nav class="nav-links">
+      <a href="#">Home</a>
+      <a href="#">About Us</a>
+      <a href="#">Courses</a>
+      <a href="#">Free Tests</a>
+      <a href="#">More</a>
+    </nav>
+    <div class="auth">Login</div>
+  </div>
+</header>
+
+<!-- ================= MAIN ================= -->
+<main class="container">
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar" aria-label="Course Filters">
+    <div class="search-box">
+      <input type="search" placeholder="Search courses…" aria-label="Search courses">
+    </div>
+
+    <div class="filter-group">
+      <div class="filter-title">Exam Type</div>
+      <label><input type="checkbox"> JEE</label>
+      <label><input type="checkbox"> NEET</label>
+      <label><input type="checkbox"> UPSC</label>
+      <label><input type="checkbox"> SSC</label>
+      <label><input type="checkbox"> IELTS</label>
+    </div>
+
+    <div class="filter-group">
+      <div class="filter-title">Class</div>
+      <label><input type="checkbox"> 10th</label>
+      <label><input type="checkbox"> 11th</label>
+      <label><input type="checkbox"> 12th</label>
+      <label><input type="checkbox"> Graduate</label>
+    </div>
+
+    <div class="filter-group">
+      <div class="filter-title">Price</div>
+      <label><input type="checkbox"> Free</label>
+      <label><input type="checkbox"> Paid</label>
+    </div>
+  </aside>
+
+  <!-- CONTENT -->
+  <section class="content">
+    <h1>Our Courses</h1>
+    <p class="subtitle">Prepare for your exams with our comprehensive courses tailored for success.</p>
+
+    <div class="grid">
+
+      <!-- CARD -->
+      <article class="card">
+        <img src="https://images.unsplash.com/photo-1519682337058-a94d519337bc" alt="">
+        <div class="card-body">
+          <span class="badge">JEE</span>
+          <h3>Mastering JEE Advanced Physics</h3>
+          <p>Dive deep into complex physics concepts crucial for JEE.</p>
+          <div class="meta">
+            <span>6 Months</span>
+            <span class="price">₹3,999</span>
+          </div>
+          <div class="btn primary">Enroll Now</div>
+        </div>
+      </article>
+
+      <article class="card">
+        <img src="https://images.unsplash.com/photo-1529070538774-1843cb3265df" alt="">
+        <div class="card-body">
+          <span class="badge">NEET</span>
+          <h3>NEET Biology Comprehensive Course</h3>
+          <p>Extensive coverage of Botany and Zoology.</p>
+          <div class="meta">
+            <span>5 Months</span>
+            <span class="price">₹4,999</span>
+          </div>
+          <div class="btn secondary">View Details</div>
+        </div>
+      </article>
+
+      <article class="card">
+        <img src="https://images.unsplash.com/photo-1509021436665-8f07dbf5bf1d" alt="">
+        <div class="card-body">
+          <span class="badge">Boards</span>
+          <h3>Class 10 Boards Mathematics Mastery</h3>
+          <p>Build a strong foundation in algebra and geometry.</p>
+          <div class="meta">
+            <span>3 Months</span>
+            <span class="price">₹2,999</span>
+          </div>
+          <div class="btn primary">Enroll Now</div>
+        </div>
+      </article>
+
+    </div>
+
+
+    <!-- ================= NATIONAL LEVEL ================= -->
+<h2 style="margin:30px 0 16px">National-Level Competitive Exams</h2>
+
+<div class="grid">
+
+  <article class="card">
+    <div class="card-body">
+      <span class="badge">UPSC</span>
+      <h3>Civil Services & Administration</h3>
+      <p>IAS, IPS, IFS, IRS – complete foundation & advanced prep.</p>
+      <div class="meta">
+        <span>12 Months</span>
+        <span class="price">₹49,999</span>
+      </div>
+      <div class="btn primary">Enroll Now</div>
+    </div>
+  </article>
+
+  <article class="card">
+    <div class="card-body">
+      <span class="badge">Defence</span>
+      <h3>UPSC NDA & CDS</h3>
+      <p>NDA & CDS written + SSB preparation.</p>
+      <div class="meta">
+        <span>6 Months</span>
+        <span class="price">₹19,999</span>
+      </div>
+      <div class="btn secondary">View Details</div>
+    </div>
+  </article>
+
+  <article class="card">
+    <div class="card-body">
+      <span class="badge">Engineering</span>
+      <h3>SSC-JE & Railways</h3>
+      <p>SSC-JE, RRB JE, SSE, ALP technical exams.</p>
+      <div class="meta">
+        <span>8 Months</span>
+        <span class="price">₹14,999</span>
+      </div>
+      <div class="btn primary">Enroll Now</div>
+    </div>
+  </article>
+
+</div>
+
+<!-- ================= BANKING ================= -->
+<h2 style="margin:40px 0 16px">Banking & Finance</h2>
+
+<div class="grid">
+
+  <article class="card">
+    <div class="card-body">
+      <span class="badge">Banking</span>
+      <h3>IBPS PO / Clerk / SO</h3>
+      <p>Prelims + Mains complete banking preparation.</p>
+      <div class="meta">
+        <span>5 Months</span>
+        <span class="price">₹9,999</span>
+      </div>
+      <div class="btn primary">Enroll Now</div>
+    </div>
+  </article>
+
+  <article class="card">
+    <div class="card-body">
+      <span class="badge">Banking</span>
+      <h3>SBI PO & Clerk</h3>
+      <p>Concept + practice focused SBI exams.</p>
+      <div class="meta">
+        <span>4 Months</span>
+        <span class="price">₹8,999</span>
+      </div>
+      <div class="btn secondary">View Details</div>
+    </div>
+  </article>
+
+  <article class="card">
+    <div class="card-body">
+      <span class="badge">Finance</span>
+      <h3>RBI & NABARD</h3>
+      <p>RBI Grade-B, Assistant, NABARD A/B.</p>
+      <div class="meta">
+        <span>6 Months</span>
+        <span class="price">₹15,999</span>
+      </div>
+      <div class="btn primary">Enroll Now</div>
+    </div>
+  </article>
+
+</div>
+
+<!-- ================= STATE LEVEL ================= -->
+<h2 style="margin:40px 0 16px">State-Level Competitive Exams</h2>
+
+<div class="grid">
+
+  <article class="card">
+    <div class="card-body">
+      <span class="badge">PSC</span>
+      <h3>State PSC Exams</h3>
+      <p>BPSC, UPPSC, MPPSC, RPSC, JPSC, HPSC.</p>
+      <div class="meta">
+        <span>10 Months</span>
+        <span class="price">₹19,999</span>
+      </div>
+      <div class="btn primary">Enroll Now</div>
+    </div>
+  </article>
+
+  <article class="card">
+    <div class="card-body">
+      <span class="badge">Police</span>
+      <h3>State Police Exams</h3>
+      <p>SI, Constable, Fire, Jail Warder.</p>
+      <div class="meta">
+        <span>4 Months</span>
+        <span class="price">₹6,999</span>
+      </div>
+      <div class="btn secondary">View Details</div>
+    </div>
+  </article>
+
+  <article class="card">
+    <div class="card-body">
+      <span class="badge">Teaching</span>
+      <h3>State TET Exams</h3>
+      <p>BTET, CTET, UTET, HTET, RTET etc.</p>
+      <div class="meta">
+        <span>3 Months</span>
+        <span class="price">₹4,999</span>
+      </div>
+      <div class="btn primary">Enroll Now</div>
+    </div>
+  </article>
+
+</div>
+
+<!-- ================= SCHOOL BOARDS ================= -->
+<h2 style="margin:40px 0 16px">All School Boards in India</h2>
+
+<div class="grid">
+
+  <article class="card">
+    <div class="card-body">
+      <span class="badge">National</span>
+      <h3>CBSE / ICSE / NIOS</h3>
+      <p>Class 9–12 full syllabus preparation.</p>
+      <div class="meta">
+        <span>Academic Year</span>
+        <span class="price">₹3,999</span>
+      </div>
+      <div class="btn primary">Enroll Now</div>
+    </div>
+  </article>
+
+  <article class="card">
+    <div class="card-body">
+      <span class="badge">State Boards</span>
+      <h3>All State Boards</h3>
+      <p>BSEB, UP Board, RBSE, MPBSE, JAC, WB.</p>
+      <div class="meta">
+        <span>Academic Year</span>
+        <span class="price">₹2,999</span>
+      </div>
+      <div class="btn secondary">View Details</div>
+    </div>
+  </article>
+
+</div>
+
+
+  </section>
+</main>
+
+<!-- ================= FOOTER ================= -->
+<footer>
+  <div class="footer-inner">
+    <span>© 2023 EduMentor. All rights reserved.</span>
+    <span>Privacy Policy · Terms · Sitemap</span>
+  </div>
+</footer>
+
+</body>
+</html>
