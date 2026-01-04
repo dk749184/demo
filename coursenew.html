@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Courses | SMN Group</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- Google Font -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --primary:#2563eb;
+  --dark:#111827;
+  --gray:#6b7280;
+  --light:#f9fafb;
+  --border:#e5e7eb;
+  --card:#ffffff;
+  --radius:14px;
+}
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Inter',sans-serif;
+}
+
+body{
+  background:#fff;
+  color:var(--dark);
+  line-height:1.6;
+}
+
+/* ================= HEADER ================= */
+header{
+  height:64px;
+  border-bottom:1px solid var(--border);
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:0 60px;
+}
+
+.logo{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  font-weight:700;
+  color:var(--primary);
+}
+
+nav{
+  display:flex;
+  gap:28px;
+  font-size:14px;
+}
+
+nav a{
+  text-decoration:none;
+  color:var(--dark);
+}
+
+nav a:hover{
+  color:var(--primary);
+}
+
+/* ================= HERO ================= */
+.hero{
+  padding:70px 60px;
+  display:grid;
+  grid-template-columns:1.1fr 1fr;
+  gap:60px;
+  align-items:center;
+}
+
+.hero h1{
+  font-size:44px;
+  line-height:1.15;
+  font-weight:800;
+}
+
+.hero p{
+  margin-top:18px;
+  color:var(--gray);
+  max-width:520px;
+}
+
+.hero img{
+  width:100%;
+  border-radius:14px;
+  object-fit:cover;
+}
+
+/* ================= SECTION TITLE ================= */
+.section-title{
+  text-align:center;
+  font-size:28px;
+  font-weight:700;
+  margin:80px 0 40px;
+}
+
+/* ================= COURSES ================= */
+.courses{
+  padding:0 60px 80px;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:28px;
+}
+
+.card{
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:var(--radius);
+  padding:20px;
+  display:flex;
+  flex-direction:column;
+}
+
+.card img{
+  width:100%;
+  height:160px;
+  object-fit:cover;
+  border-radius:10px;
+  margin-bottom:16px;
+}
+
+.card h3{
+  font-size:16px;
+  font-weight:600;
+  margin-bottom:8px;
+}
+
+.card p{
+  font-size:14px;
+  color:var(--gray);
+  flex-grow:1;
+}
+
+.meta{
+  margin:14px 0;
+  font-size:12px;
+  color:var(--primary);
+  font-weight:500;
+}
+
+.btn{
+  align-self:flex-start;
+  background:var(--primary);
+  color:#fff;
+  border:none;
+  padding:8px 14px;
+  border-radius:8px;
+  font-size:13px;
+  cursor:pointer;
+}
+
+.btn:hover{
+  opacity:.9;
+}
+
+/* ================= FOOTER ================= */
+footer{
+  border-top:1px solid var(--border);
+  padding:20px 60px;
+  display:flex;
+  justify-content:space-between;
+  font-size:13px;
+  color:var(--gray);
+}
+
+footer a{
+  text-decoration:none;
+  color:var(--gray);
+  margin-left:16px;
+}
+
+footer a:hover{
+  color:var(--primary);
+}
+
+/* ================= RESPONSIVE ================= */
+@media(max-width:900px){
+  header, .hero, .courses, footer{
+    padding-left:20px;
+    padding-right:20px;
+  }
+
+  .hero{
+    grid-template-columns:1fr;
+  }
+
+  .hero h1{
+    font-size:34px;
+  }
+}
+</style>
+</head>
+<body>
+
+<!-- ================= HEADER ================= -->
+<header>
+  <div class="logo">
+    🎓 SMN Group
+  </div>
+  <nav>
+    <a href="#">Home</a>
+    <a href="#">Courses</a>
+    <a href="#">About</a>
+    <a href="#">Contact</a>
+    <a href="#">More</a>
+    <a href="#">Login</a>
+  </nav>
+</header>
+
+<!-- ================= HERO ================= -->
+<section class="hero">
+  <div>
+    <h1>Explore Our<br>Professional Courses</h1>
+    <p>
+      Empower your career with industry-leading training and certifications
+      designed for the modern professional. Join a community of learners and
+      achieve your potential with SMN Group.
+    </p>
+  </div>
+  <img src="Selection.webp" alt="Students">
+</section>
+
+<!-- ================= COURSES ================= -->
+<h2 class="section-title">Our Professional Programs</h2>
+
+<section class="courses">
+
+  <div class="card">
+    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71" alt="">
+    <h3>Advanced Data Science with Python</h3>
+    <p>
+      Master advanced techniques in data analysis, machine learning, and AI using Python.
+    </p>
+    <div class="meta">12 Weeks</div>
+    <button class="btn">View Details</button>
+  </div>
+
+  <div class="card">
+    <img src="https://images.unsplash.com/photo-1557804506-669a67965ba0" alt="">
+    <h3>Digital Marketing Professional Certificate</h3>
+    <p>
+      Learn SEO, social media marketing, content strategy, and campaign execution.
+    </p>
+    <div class="meta">8 Weeks</div>
+    <button class="btn">View Details</button>
+  </div>
+
+  <div class="card">
+    <img src="https://images.unsplash.com/photo-1614064641938-3bbee52942c7" alt="">
+    <h3>Cybersecurity Fundamentals</h3>
+    <p>
+      Understand core principles of cybersecurity, network security, and risk management.
+    </p>
+    <div class="meta">10 Weeks</div>
+    <button class="btn">View Details</button>
+  </div>
+
+  <div class="card">
+    <img src="https://images.unsplash.com/photo-1581092334651-ddf26d9a09d0" alt="">
+    <h3>Project Management Professional (PMP) Exam Prep</h3>
+    <p>
+      Comprehensive PMP preparation covering PMBOK guide and exam strategies.
+    </p>
+    <div class="meta">6 Weeks</div>
+    <button class="btn">View Details</button>
+  </div>
+
+  <div class="card">
+    <img src="https://images.unsplash.com/photo-1518770660439-4636190af475" alt="">
+    <h3>Cloud Computing with AWS</h3>
+    <p>
+      Learn AWS services including EC2, S3, RDS, and Lambda for cloud applications.
+    </p>
+    <div class="meta">14 Weeks</div>
+    <button class="btn">View Details</button>
+  </div>
+
+  <div class="card">
+    <img src="https://images.unsplash.com/photo-1587440871875-191322ee64b0" alt="">
+    <h3>UI/UX Design Masterclass</h3>
+    <p>
+      Master UI/UX principles, wireframing, prototyping, and usability testing.
+    </p>
+    <div class="meta">10 Weeks</div>
+    <button class="btn">View Details</button>
+  </div>
+
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer>
+  <div>© 2025 SMN Group. All rights reserved.</div>
+  <div>
+    <a href="#">Privacy Policy</a>
+    <a href="#">Terms of Service</a>
+  </div>
+</footer>
+
+</body>
+</html>

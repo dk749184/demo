@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Courses | SMN Group</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --primary:#2563eb;
+  --primary-light:#eaf1ff;
+  --text:#0f172a;
+  --muted:#64748b;
+  --border:#e5e7eb;
+  --bg:#f8fafc;
+  --white:#ffffff;
+  --radius:14px;
+}
+
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Inter',sans-serif}
+body{background:var(--bg);color:var(--text);line-height:1.6}
+a{text-decoration:none;color:inherit}
+button{cursor:pointer;border:none;background:none}
+
+/* ================= HEADER ================= */
+header{
+  background:#fff;
+  padding:16px 40px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  border-bottom:1px solid var(--border);
+}
+.logo{font-weight:700;font-size:20px;color:var(--primary)}
+nav a{margin:0 14px;font-weight:500}
+.auth button{
+  padding:8px 16px;
+  border-radius:8px;
+  margin-left:8px;
+}
+.logo{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  font-weight:700;
+  font-size:20px;
+  color:var(--primary);
+}
+
+.logo img{
+  height:40px;
+}
+.login{border:1px solid var(--border)}
+.signup{background:var(--primary);color:#fff}
+
+/* ================= HERO ================= */
+.hero{
+  background:var(--primary-light);
+  padding:60px 20px;
+  text-align:center;
+}
+.hero h1{font-size:36px;margin-bottom:10px}
+.hero p{color:var(--muted)}
+
+/* ================= SEARCH ================= */
+.search-box{
+  max-width:600px;
+  margin:30px auto;
+}
+.search-box input{
+  width:100%;
+  padding:14px 16px;
+  border-radius:10px;
+  border:1px solid var(--border);
+  font-size:15px;
+}
+
+/* ================= LAYOUT ================= */
+.container{
+  max-width:1200px;
+  margin:0 auto 60px;
+  padding:0 20px;
+  display:grid;
+  grid-template-columns:260px 1fr;
+  gap:30px;
+}
+
+/* ================= FILTERS ================= */
+.filters{
+  background:#fff;
+  border-radius:var(--radius);
+  padding:20px;
+  border:1px solid var(--border);
+}
+.filters h3{margin-bottom:15px}
+.filters label{
+  display:block;
+  margin:8px 0;
+  font-size:14px;
+}
+.filters input, .filters select{
+  width:100%;
+  margin-top:6px;
+  padding:8px;
+}
+.apply-btn{
+  margin-top:16px;
+  width:100%;
+  background:var(--primary);
+  color:#fff;
+  padding:10px;
+  border-radius:8px;
+}
+
+/* ================= SORT ================= */
+.sort-bar{
+  display:flex;
+  justify-content:flex-end;
+  margin-bottom:20px;
+}
+.sort-bar select{
+  padding:8px 12px;
+  border-radius:8px;
+  border:1px solid var(--border);
+}
+
+/* ================= COURSES ================= */
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(260px,1fr));
+  gap:22px;
+}
+.card{
+  background:#fff;
+  border-radius:var(--radius);
+  overflow:hidden;
+  border:1px solid var(--border);
+  transition:.25s;
+}
+.card:hover{transform:translateY(-6px);box-shadow:0 10px 25px rgba(0,0,0,.08)}
+.card img{width:100%;height:160px;object-fit:cover}
+.card-body{padding:16px}
+.tag{font-size:12px;color:var(--primary);font-weight:600}
+.card h4{margin:6px 0;font-size:16px}
+.card p{font-size:13px;color:var(--muted)}
+.meta{
+  display:flex;
+  justify-content:space-between;
+  font-size:13px;
+  margin:12px 0;
+}
+.card button{
+  width:100%;
+  padding:10px;
+  border-radius:8px;
+  background:var(--primary);
+  color:#fff;
+}
+
+/* ================= PAGINATION ================= */
+.pagination{
+  margin-top:30px;
+  display:flex;
+  justify-content:center;
+  gap:8px;
+}
+.pagination button{
+  padding:8px 12px;
+  border-radius:8px;
+  border:1px solid var(--border);
+}
+.pagination .active{background:var(--primary);color:#fff}
+
+/* ================= FOOTER ================= */
+footer{
+  background:#fff;
+  padding:40px 20px;
+  border-top:1px solid var(--border);
+}
+.footer-grid{
+  max-width:1200px;
+  margin:auto;
+  display:grid;
+  grid-template-columns:2fr 1fr 1fr;
+  gap:30px;
+}
+footer p{font-size:14px;color:var(--muted)}
+.social a{margin-right:10px;font-size:18px}
+
+@media(max-width:900px){
+  .container{grid-template-columns:1fr}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo"><img src="https://diy-assets.classplus.co/_next/image?url=https://cdn-diy-public.classplus.co/prod/SMNLOGO_1766077785354.jpg&w=1920&q=75" alt="SMN Group"></div>
+  <nav>
+    <a href="#">Home</a>
+    <a href="#">Courses</a>
+    <a href="#">Exams</a>
+    <a href="#">About</a>
+    <a href="#">Contact</a>
+  </nav>
+  <div class="auth">
+    <button class="login">Login</button>
+    <button class="signup">Sign Up</button>
+  </div>
+</header>
+
+<section class="hero">
+  <h1>Our Courses</h1>
+  <p>Unlock your potential with expert-led courses and exam preparation</p>
+</section>
+
+<div class="search-box">
+  <input type="text" id="search" placeholder="Search courses, exams, keywords...">
+</div>
+
+<div class="container">
+
+  <!-- FILTERS -->
+  <aside class="filters">
+    <h3>Filters</h3>
+
+    <label>Exam Type
+      <select id="examFilter">
+        <option value="">All</option>
+        <option>SAT</option>
+        <option>ACT</option>
+        <option>GRE</option>
+        <option>GMAT</option>
+        <option>TOEFL</option>
+        <option>IELTS</option>
+        <option>LSAT</option>
+        <option>Free</option>
+      </select>
+    </label>
+
+    <label>Level
+      <select id="levelFilter">
+        <option value="">All</option>
+        <option>Beginner</option>
+        <option>Intermediate</option>
+        <option>Advanced</option>
+      </select>
+    </label>
+
+    <label>Max Price ($)
+      <input type="number" id="priceFilter">
+    </label>
+
+    <button class="apply-btn" onclick="applyFilters()">Apply Filters</button>
+  </aside>
+
+  <!-- COURSES -->
+  <main>
+    <div class="sort-bar">
+      <select id="sort" onchange="applyFilters()">
+        <option value="">Sort By</option>
+        <option value="priceAsc">Price: Low → High</option>
+        <option value="priceDesc">Price: High → Low</option>
+        <option value="name">Name A–Z</option>
+        <option value="duration">Duration</option>
+      </select>
+    </div>
+
+    <div class="grid" id="courseGrid"></div>
+    <div class="pagination" id="pagination"></div>
+  </main>
+</div>
+
+<footer>
+  <div class="footer-grid">
+    <div>
+      <h4>EduPlatform</h4>
+      <p>High-quality exam preparation and learning resources.</p>
+    </div>
+    <div>
+      <h4>Quick Links</h4>
+      <p>Privacy Policy</p>
+      <p>Terms & Conditions</p>
+      <p>Help Center</p>
+    </div>
+    <div>
+      <h4>Connect</h4>
+      <div class="social">
+        <a>🐦</a><a>📘</a><a>📸</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+const courses = [
+ {id:1,title:"Mastering SAT Math & English",exam:"SAT",level:"Beginner",duration:12,price:499,img:"https://images.unsplash.com/photo-1524995997946-a1c2e315a42f"},
+ {id:2,title:"Advanced ACT Science",exam:"ACT",level:"Advanced",duration:8,price:349,img:"https://images.unsplash.com/photo-1522202176988-66273c2fd55f"},
+ {id:3,title:"GRE Verbal Excellence",exam:"GRE",level:"Intermediate",duration:10,price:599,img:"https://images.unsplash.com/photo-1523050854058-8df90110c9f1"},
+ {id:4,title:"GMAT Quantitative",exam:"GMAT",level:"Advanced",duration:14,price:749,img:"https://images.unsplash.com/photo-1498079022511-d15614cb1c02"},
+ {id:5,title:"TOEFL iBT Speaking",exam:"TOEFL",level:"Beginner",duration:6,price:299,img:"https://images.unsplash.com/photo-1503676260728-1c00da094a0b"},
+ {id:6,title:"IELTS Academic Training",exam:"IELTS",level:"Intermediate",duration:8,price:399,img:"https://images.unsplash.com/photo-1509062522246-3755977927d7"},
+ {id:7,title:"Free Algebra Basics",exam:"Free",level:"Beginner",duration:4,price:0,img:"https://images.unsplash.com/photo-1513258496099-48168024aec0"}
+];
+
+let currentPage=1;
+const perPage=6;
+
+function applyFilters(){
+ let data=[...courses];
+ const s=document.getElementById("search").value.toLowerCase();
+ const exam=document.getElementById("examFilter").value;
+ const level=document.getElementById("levelFilter").value;
+ const price=document.getElementById("priceFilter").value;
+ const sort=document.getElementById("sort").value;
+
+ if(s) data=data.filter(c=>c.title.toLowerCase().includes(s)||c.exam.toLowerCase().includes(s));
+ if(exam) data=data.filter(c=>c.exam===exam);
+ if(level) data=data.filter(c=>c.level===level);
+ if(price) data=data.filter(c=>c.price<=price);
+
+ if(sort==="priceAsc") data.sort((a,b)=>a.price-b.price);
+ if(sort==="priceDesc") data.sort((a,b)=>b.price-a.price);
+ if(sort==="name") data.sort((a,b)=>a.title.localeCompare(b.title));
+ if(sort==="duration") data.sort((a,b)=>a.duration-b.duration);
+
+ render(data);
+}
+
+function render(data){
+ const grid=document.getElementById("courseGrid");
+ grid.innerHTML="";
+ const start=(currentPage-1)*perPage;
+ const pageData=data.slice(start,start+perPage);
+
+ pageData.forEach(c=>{
+  grid.innerHTML+=`
+  <div class="card">
+    <img src="${c.img}">
+    <div class="card-body">
+      <div class="tag">${c.exam} Prep</div>
+      <h4>${c.title}</h4>
+      <p>${c.level} level course</p>
+      <div class="meta">
+        <span>${c.duration} Weeks</span>
+        <strong>${c.price?`$${c.price}`:"Free"}</strong>
+      </div>
+      <button>${c.price?"Enroll Now":"Start Learning"}</button>
+    </div>
+  </div>`;
+ });
+ renderPagination(data.length);
+}
+
+function renderPagination(total){
+ const pages=Math.ceil(total/perPage);
+ const pag=document.getElementById("pagination");
+ pag.innerHTML="";
+ for(let i=1;i<=pages;i++){
+  pag.innerHTML+=`<button class="${i===currentPage?'active':''}" onclick="currentPage=${i};applyFilters()">${i}</button>`;
+ }
+}
+
+document.getElementById("search").addEventListener("input",()=>{currentPage=1;applyFilters()});
+applyFilters();
+</script>
+
+</body>
+</html>

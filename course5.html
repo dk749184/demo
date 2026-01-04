@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Explore All Courses</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --primary:#2f80ed;
+  --bg:#f7f9fc;
+  --border:#e5e7eb;
+  --text:#1f2937;
+  --muted:#6b7280;
+  --card:#ffffff;
+}
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Inter',sans-serif;
+}
+
+body{
+  background:var(--bg);
+  color:var(--text);
+}
+
+/* ===== Layout ===== */
+.wrapper{
+  display:flex;
+  max-width:1400px;
+  margin:20px auto;
+  background:#fff;
+  border:1px solid var(--border);
+  border-radius:8px;
+  overflow:hidden;
+}
+
+/* ===== Sidebar ===== */
+.sidebar{
+  width:260px;
+  border-right:1px solid var(--border);
+  padding:20px;
+}
+
+.sidebar h3{
+  font-size:16px;
+  font-weight:600;
+  margin-bottom:16px;
+}
+
+.filter-group{
+  margin-bottom:24px;
+}
+
+.filter-title{
+  font-weight:600;
+  font-size:14px;
+  margin-bottom:10px;
+}
+
+.filter-group label{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  font-size:14px;
+  margin-bottom:8px;
+  color:#374151;
+  cursor:pointer;
+}
+
+.filter-group input{
+  accent-color:var(--primary);
+}
+
+/* ===== Main Content ===== */
+.main{
+  flex:1;
+  padding:24px;
+}
+
+.main-header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:16px;
+}
+
+.main-header h1{
+  font-size:22px;
+  font-weight:700;
+}
+
+/* ===== Search + Sort ===== */
+.controls{
+  display:flex;
+  gap:12px;
+  margin-bottom:20px;
+}
+
+.search{
+  flex:1;
+  position:relative;
+}
+
+.search input{
+  width:100%;
+  padding:12px 14px;
+  border:1px solid var(--border);
+  border-radius:6px;
+  font-size:14px;
+}
+
+.sort select{
+  padding:12px;
+  border:1px solid var(--border);
+  border-radius:6px;
+  background:#fff;
+}
+
+/* ===== Course Card ===== */
+.course{
+  display:flex;
+  align-items:center;
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:8px;
+  padding:16px;
+  margin-bottom:16px;
+  gap:16px;
+}
+
+.course img{
+  width:64px;
+  height:64px;
+  border-radius:6px;
+  object-fit:cover;
+  background:#f1f5f9;
+}
+
+.course-info{
+  flex:1;
+}
+
+.course-info h4{
+  font-size:16px;
+  font-weight:600;
+  margin-bottom:4px;
+}
+
+.course-info span{
+  font-size:13px;
+  color:var(--muted);
+}
+
+/* ===== Progress ===== */
+.progress-wrap{
+  margin-top:8px;
+  display:flex;
+  align-items:center;
+  gap:8px;
+}
+
+.progress{
+  flex:1;
+  height:6px;
+  background:#e5e7eb;
+  border-radius:10px;
+  overflow:hidden;
+}
+
+.progress div{
+  height:100%;
+  background:var(--primary);
+}
+
+.percent{
+  font-size:12px;
+  color:var(--muted);
+}
+
+/* ===== Actions ===== */
+.actions{
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+
+.view{
+  width:34px;
+  height:34px;
+  border:1px solid var(--border);
+  border-radius:6px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  cursor:pointer;
+  background:#fff;
+}
+
+.enroll{
+  background:var(--primary);
+  color:#fff;
+  border:none;
+  padding:8px 14px;
+  border-radius:6px;
+  font-size:14px;
+  cursor:pointer;
+}
+
+/* ===== Pagination ===== */
+.pagination{
+  display:flex;
+  justify-content:center;
+  gap:10px;
+  margin-top:24px;
+}
+
+.pagination button{
+  padding:6px 12px;
+  border:1px solid var(--border);
+  background:#fff;
+  border-radius:6px;
+  cursor:pointer;
+}
+
+.pagination .active{
+  border-color:var(--primary);
+  color:var(--primary);
+}
+
+/* ===== Responsive ===== */
+@media(max-width:900px){
+  .wrapper{flex-direction:column}
+  .sidebar{width:100%;border-right:none;border-bottom:1px solid var(--border)}
+}
+</style>
+</head>
+<body>
+
+<div class="wrapper">
+
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <h3>Filters</h3>
+
+    <div class="filter-group">
+      <div class="filter-title">Category</div>
+      <label><input type="checkbox" checked> Web Development</label>
+      <label><input type="checkbox"> Data Science</label>
+      <label><input type="checkbox"> Marketing</label>
+      <label><input type="checkbox"> Design</label>
+      <label><input type="checkbox"> Business</label>
+      <label><input type="checkbox"> Cloud Computing</label>
+      <label><input type="checkbox"> Cybersecurity</label>
+    </div>
+
+    <div class="filter-group">
+      <div class="filter-title">Level</div>
+      <label><input type="checkbox"> Beginner</label>
+      <label><input type="checkbox"> Intermediate</label>
+      <label><input type="checkbox"> Advanced</label>
+      <label><input type="checkbox"> All Levels</label>
+    </div>
+
+    <div class="filter-group">
+      <div class="filter-title">Price</div>
+      <label><input type="checkbox" checked> Free</label>
+      <label><input type="checkbox"> Paid</label>
+      <label><input type="checkbox"> Premium</label>
+    </div>
+  </aside>
+
+  <!-- Main -->
+  <main class="main">
+    <div class="main-header">
+      <h1>Explore All Courses</h1>
+    </div>
+
+    <div class="controls">
+      <div class="search">
+        <input type="text" placeholder="Search for courses...">
+      </div>
+      <div class="sort">
+        <select>
+          <option>Newest</option>
+          <option>Popular</option>
+          <option>Progress</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- Course Item -->
+    <div class="course">
+      <img src="https://via.placeholder.com/64">
+      <div class="course-info">
+        <h4>Mastering React Hooks</h4>
+        <span>Jane Doe</span>
+        <div class="progress-wrap">
+          <div class="progress"><div style="width:75%"></div></div>
+          <span class="percent">75%</span>
+        </div>
+      </div>
+      <div class="actions">
+        <div class="view">👁</div>
+        <button class="enroll">Enroll</button>
+      </div>
+    </div>
+
+    <div class="course">
+      <img src="https://via.placeholder.com/64">
+      <div class="course-info">
+        <h4>Advanced UI/UX Design Principles</h4>
+        <span>John Smith</span>
+        <div class="progress-wrap">
+          <div class="progress"><div style="width:40%"></div></div>
+          <span class="percent">40%</span>
+        </div>
+      </div>
+      <div class="actions">
+        <div class="view">👁</div>
+        <button class="enroll">Enroll</button>
+      </div>
+    </div>
+
+    <div class="course">
+      <img src="https://via.placeholder.com/64">
+      <div class="course-info">
+        <h4>Data Science with Python</h4>
+        <span>Alice Johnson</span>
+        <div class="progress-wrap">
+          <div class="progress"><div style="width:90%"></div></div>
+          <span class="percent">90%</span>
+        </div>
+      </div>
+      <div class="actions">
+        <div class="view">👁</div>
+        <button class="enroll">Enroll</button>
+      </div>
+    </div>
+
+    <div class="course">
+      <img src="https://via.placeholder.com/64">
+      <div class="course-info">
+        <h4>Digital Marketing Fundamentals</h4>
+        <span>Robert Brown</span>
+        <div class="progress-wrap">
+          <div class="progress"><div style="width:20%"></div></div>
+          <span class="percent">20%</span>
+        </div>
+      </div>
+      <div class="actions">
+        <div class="view">👁</div>
+        <button class="enroll">Enroll</button>
+      </div>
+    </div>
+
+    <div class="course">
+      <img src="https://via.placeholder.com/64">
+      <div class="course-info">
+        <h4>Cloud Computing Essentials</h4>
+        <span>Emily White</span>
+        <div class="progress-wrap">
+          <div class="progress"><div style="width:60%"></div></div>
+          <span class="percent">60%</span>
+        </div>
+      </div>
+      <div class="actions">
+        <div class="view">👁</div>
+        <button class="enroll">Enroll</button>
+      </div>
+    </div>
+
+    <div class="course">
+      <img src="https://via.placeholder.com/64">
+      <div class="course-info">
+        <h4>Cybersecurity for Beginners</h4>
+        <span>David Green</span>
+        <div class="progress-wrap">
+          <div class="progress"><div style="width:88%"></div></div>
+          <span class="percent">88%</span>
+        </div>
+      </div>
+      <div class="actions">
+        <div class="view">👁</div>
+        <button class="enroll">Enroll</button>
+      </div>
+    </div>
+
+    <!-- Pagination -->
+    <div class="pagination">
+      <button>Previous</button>
+      <button class="active">1</button>
+      <button>2</button>
+      <button>3</button>
+      <button>Next</button>
+    </div>
+
+  </main>
+</div>
+
+</body>
+</html>
